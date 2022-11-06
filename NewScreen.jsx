@@ -8,25 +8,17 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { useEffect, useState } from "react";
-import Base from "./base";
 import { CountryPicker } from "react-native-country-codes-picker";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { NavigationContainer } from "@react-navigation/native";
 import { Toast } from "react-native-toast-message/lib/src/Toast";
-import TestScreen from "./NewScreen";
 import Input from "./Input";
 import { CountryList } from "react-native-country-codes-picker";
 
-const Stack = createNativeStackNavigator();
-
-export default function App() {
+export default function TestScreen({ route }) {
+  console.log(route);
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Base" component={Base} />
-        <Stack.Screen name="NewScreen" component={TestScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <View style={styles.container}>
+      <Text>{route.params.data}</Text>
+    </View>
   );
 }
 
